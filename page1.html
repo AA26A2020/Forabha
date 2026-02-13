@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>For My Abha ❤️ Our 5th Valentine's</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #ffe6f0; /* Soft romantic pink */
+            background-image: radial-gradient(circle at 10% 30%, #ffd9e8 0%, transparent 30%),
+                              radial-gradient(circle at 90% 70%, #ffc1d5 0%, transparent 30%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card-wrapper {
+            max-width: 700px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 40px 40px 20px 20px;
+            box-shadow: 0 20px 40px rgba(200, 30, 80, 0.2), 0 0 0 2px #fff8, 0 0 0 5px #ff99bb;
+            padding: 25px 20px 30px 20px;
+            margin-top: 20px; /* stays at top */
+        }
+
+        .page {
+            background: #fff0f5; /* Lavender blush */
+            border-radius: 30px 30px 15px 15px;
+            padding: 30px 20px;
+            box-shadow: inset 0 2px 10px #ffb6c1, 0 10px 15px rgba(150, 40, 70, 0.2);
+            border: 2px solid white;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Hide all pages except active */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Brush Script MT', cursive, sans-serif;
+            color: #c72b4b;
+            font-size: 3rem;
+            text-shadow: 2px 2px 0 #ffe0f0;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        h2 {
+            color: #a12b4e;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cover-image {
+            width: 100%;
+            max-width: 400px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 0 5px #ffe6f0, 0 0 0 8px #ffa5b9;
+            transform: rotate(1deg);
+            transition: transform 0.3s;
+        }
+
+        .cover-image:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .letter {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #4a2c3a;
+            background: rgba(255, 240, 245, 0.9);
+            padding: 25px;
+            border-radius: 30px;
+            white-space: pre-wrap;
+            font-family: 'Trebuchet MS', 'Georgia', serif;
+            box-shadow: 0 0 20px #ffb6c1 inset;
+            border: 2px dashed #ff87a2;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .polaroid-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 12px 12px 30px 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 0 0 2px #feb6c5;
+            transform: rotate(var(--rot, -1deg));
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .polaroid:nth-child(even) {
+            --rot: 2deg;
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 20px 25px #ff9eb5;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border: 2px solid #ffe2e9;
+        }
+
+        .final-image {
+            width: 80%;
+            max-width: 350px;
+            border-radius: 40px;
+            margin: 10px auto 30px;
+            display: block;
+            box-shadow: 0 15px 25px #f082ac;
+            border: 6px solid white;
+        }
+
+        .heart-message {
+            font-size: 3rem;
+            text-align: center;
+            color: #b32e4a;
+            font-weight: bold;
+            text-shadow: 0 0 10px #ffa5c3;
+            margin: 20px 0 10px;
+            animation: heartbeat 1s infinite ease-in-out;
+            transform-origin: center;
+            font-family: 'Brush Script MT', cursive, 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            35% { transform: scale(1.2); }
+            45% { transform: scale(1.1); }
+            55% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        .heart-emoji {
+            font-size: 4rem;
+            display: inline-block;
+            animation: pulse 1s infinite;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .next-btn {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            font-size: 1.7rem;
+            font-weight: bold;
+            padding: 15px 40px;
+            border-radius: 60px;
+            box-shadow: 0 10px 0 #a1223a, 0 10px 20px #ff9fae;
+            cursor: pointer;
+            transition: 0.07s linear;
+            font-family: 'Trebuchet MS', sans-serif;
+            letter-spacing: 2px;
+            border: 3px solid #ffeef2;
+        }
+
+        .next-btn:active {
+            transform: translateY(8px);
+            box-shadow: 0 2px 0 #a1223a, 0 5px 12px #ff7f9f;
+        }
+
+        .badge-label {
+            background: gold;
+            color: #b32e4a;
+            padding: 6px 18px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        /* Footer styles - stays at bottom */
+        .site-footer {
+            text-align: center;
+            margin-top: auto;  /* pushes footer to bottom if body is flex column */
+            padding: 20px 0 10px;
+            color: #a15c70;
+            font-size: 1.2rem;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        @media (max-width: 500px) {
+            .polaroid-grid {
+                grid-template-columns: 1fr;
+            }
+            .heart-message {
+                font-size: 2.2rem;
+            }
+            .letter {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-wrapper">
+        <!-- Page 1: Front Cover with big image -->
+        <div id="page1" class="page active">
+            <h1>❤️ Happy Valentine's ❤️</h1>
+            <img src="YOUR_FRONT_IMAGE_LINK.jpg" alt="Abha & Abhay" class="cover-image" id="coverImage">
+            <p style="text-align:center; margin: 20px 0 10px; font-size:1.4rem; color:#b32b50;">Our 5th together, my love!</p>
+            <div class="nav-buttons">
+                <button class="next-btn" id="toPage2">Next page ➡️</button>
+            </div>
+        </div>
+
+        <!-- Page 2: The Letter -->
+        <div id="page2" class="page">
+            <h2>💌 My Forever Abha 💌</h2>
+            <div class="letter">
+                Happy 5th Valentine’s Day, my love ❤️🌹
+
+Can you believe it? This is our fifth Valentine’s together. Five years of love. Five years of memories. Five years of choosing each other every single day.
+
+Time has passed, seasons have changed, but one thing has never changed — my love for you. In fact, it has only grown deeper, stronger, and more certain.
+
+I love you more than you know…
+More than you feel…
+More than I can ever fully express in words.
+
+Yes, it’s a long-distance relationship. Yes, miles separate us. But somehow, even in this distance, I always feel your warmth in my heartbeat. When I close my eyes, I feel you. When I breathe deeply, I feel your presence. When my heart beats, it beats your name.
+
+Distance has never reduced our love — it has only proved how real it is. Five years of loyalty, trust, waiting, and believing in each other is not something ordinary. It’s something rare. It’s something powerful.
+
+You are not just my Valentine for today.
+You are my Valentine for every year that comes.
+For every dream we will build.
+For every hug we are still waiting for.
+For every moment our future holds.
+
+Thank you for loving me for five beautiful years. Thank you for staying. Thank you for choosing me.
+
+No matter where life takes us, my heart will always belong to you.
+
+Happy Valentine’s Day, my love ❤️🌹
+
+Forever and always yours,
+Abhay
+            </div>
+            <div class="nav-buttons">
+                <button class="next-btn" id="toPage3">Next page ➡️</button>
+            </div>
+        </div>
+
+        <!-- Page 3: Polaroid Grid -->
+        <div id="page3" class="page">
+            <h2>📸 Our precious moments 📸</h2>
+            <div class="polaroid-grid">
+                <div class="polaroid"><img src="YOUR_IMAGE1_LINK.jpg" alt="us 1"></div>
+                <div class="polaroid"><img src="YOUR_IMAGE2_LINK.jpg" alt="us 2"></div>
+                <div class="polaroid"><img src="YOUR_IMAGE3_LINK.jpg" alt="us 3"></div>
+                <div class="polaroid"><img src="YOUR_IMAGE4_LINK.jpg" alt="us 4"></div>
+            </div>
+            <div class="nav-buttons">
+                <button class="next-btn" id="toPage4">Final page ➡️</button>
+            </div>
+        </div>
+
+        <!-- Page 4: Final page with image and I LOVE YOU ABHA -->
+        <div id="page4" class="page">
+            <h2>💖 You & Me, Forever 💖</h2>
+            <img src="YOUR_LAST_IMAGE_LINK.jpg" alt="us last" class="final-image" id="finalImage">
+            <div class="heart-message" id="heartMessage">
+                I LOVE YOU ABHA <span class="heart-emoji">❤️</span>
+            </div>
+            <p style="text-align:center; font-size:1.5rem; color:#ad3b5e;">my heartbeat belongs to you</p>
+            <div style="margin-top:30px; text-align:center;">
+                <span class="badge-label">our 5th Valentine's</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        ❤️ For Abha, with all my heart ❤️
+    </footer>
+
+    <!-- Audio elements (hidden) -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="YOUR_MUSIC_FILE.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="heartbeatAudio" loop preload="auto">
+        <source src="YOUR_HEARTBEAT_SOUND.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        (function() {
+            // Page navigation
+            const pages = {
+                1: document.getElementById('page1'),
+                2: document.getElementById('page2'),
+                3: document.getElementById('page3'),
+                4: document.getElementById('page4')
+            };
+
+            function showPage(pageNum) {
+                // Remove active class from all pages
+                Object.values(pages).forEach(p => {
+                    if (p) p.classList.remove('active');
+                });
+                const target = pages[pageNum];
+                if (target) target.classList.add('active');
+            }
+
+            // Add event listeners to buttons
+            document.getElementById('toPage2')?.addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage(2);
+                startAudio(); // try to start audio on interaction
+            });
+
+            document.getElementById('toPage3')?.addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage(3);
+                startAudio();
+            });
+
+            document.getElementById('toPage4')?.addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage(4);
+                startAudio();
+            });
+
+            // Audio control
+            const music = document.getElementById('bgMusic');
+            const heartbeat = document.getElementById('heartbeatAudio');
+            let audioStarted = false;
+
+            function startAudio() {
+                if (audioStarted) return;
+                // Attempt to play both (user interaction required)
+                music.play().catch(e => console.log("Music play failed:", e));
+                heartbeat.play().catch(e => console.log("Heartbeat play failed:", e));
+                audioStarted = true;
+
+                // Set up vibration on page 4 if supported
+                if ('vibrate' in navigator) {
+                    setInterval(() => {
+                        // Only vibrate if page 4 is active
+                        if (pages[4].classList.contains('active')) {
+                            navigator.vibrate([200, 100, 200]); // thump-thump pattern
+                        }
+                    }, 1000);
+                }
+            }
+
+            // Also try to start audio on first user click anywhere (if not already started)
+            document.body.addEventListener('click', function once() {
+                startAudio();
+                document.body.removeEventListener('click', once);
+            }, { once: true });
+
+            // Fallback: if buttons were clicked before body click, we already started via button listeners
+
+            // Reminder to replace links
+            console.log("Don't forget to replace all image and audio file paths with your hosted URLs!");
+        })();
+    </script>
+</body>
+</html>
